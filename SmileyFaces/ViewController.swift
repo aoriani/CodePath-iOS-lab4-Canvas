@@ -104,9 +104,18 @@ class ViewController: UIViewController {
                 let panGesture = UIPanGestureRecognizer(target: self, action: "onCopyFacePanRecognizer:")
                 targetView.addGestureRecognizer(panGesture)
                 targetView.userInteractionEnabled = true
+                let pinchGesture = UIPinchGestureRecognizer(target: self, action: "onPinch:")
+                targetView.addGestureRecognizer(pinchGesture)
             }
         }
 
+    }
+    
+    func onPinch(gesture: UIPinchGestureRecognizer) {
+        let scale = gesture.scale
+        gesture.view!.transform = CGAffineTransformMakeScale(scale, scale)
+
+        
     }
 }
 
